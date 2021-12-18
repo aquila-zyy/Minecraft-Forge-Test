@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "aquilastestmod:block/silverleaf_node_bottom"
+    },
+    "half=upper": {
+      "model": "aquilastestmod:block/silverleaf_node_top"
+    }
+  }
+}

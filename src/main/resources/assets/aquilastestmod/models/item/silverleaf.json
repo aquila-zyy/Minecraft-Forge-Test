@@ -1,0 +1,15 @@
+{
+  "loader": "forge:separate-perspective",
+  "gui_light": "front",
+  "base": {
+    "parent": "aquilastestmod:block/silverleaf_node_bottom"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "aquilastestmod:item/silverleaf"
+      }
+    }
+  }
+}
