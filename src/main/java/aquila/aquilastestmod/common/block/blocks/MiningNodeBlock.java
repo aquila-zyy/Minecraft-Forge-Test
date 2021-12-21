@@ -1,6 +1,7 @@
 package aquila.aquilastestmod.common.block.blocks;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -21,11 +22,12 @@ public class MiningNodeBlock extends Block {
             BlockBehaviour.Properties.of(Material.STONE)
                                      .destroyTime(3.0f)
                                      .isSuffocating((state, getter, pos) -> true)
-                                     .sound(SoundType.STONE);
+                                     .sound(SoundType.STONE)
+                                     .noOcclusion();
     
     public MiningNodeBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(REMAINING, 3));
+        this.registerDefaultState(this.defaultBlockState().setValue(REMAINING, 3).setValue(FACING, Direction.UP));
     }
     
     @Override
