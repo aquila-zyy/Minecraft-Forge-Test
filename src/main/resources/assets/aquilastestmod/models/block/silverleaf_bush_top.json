@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"textures": {
-		"particle": "aquilastestmod:block/silverleaf_node_bottom",
-		"cross": "aquilastestmod:block/silverleaf_node_bottom"
+		"particle": "aquilastestmod:block/silverleaf_bush_top",
+		"cross": "aquilastestmod:block/silverleaf_bush_top"
 	},
 	"elements": [
 		{

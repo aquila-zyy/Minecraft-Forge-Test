@@ -2,7 +2,7 @@
   "loader": "forge:separate-perspective",
   "gui_light": "front",
   "base": {
-    "parent": "aquilastestmod:block/peacebloom_node"
+    "parent": "aquilastestmod:block/peacebloom_bush"
   },
   "perspectives": {
     "gui": {

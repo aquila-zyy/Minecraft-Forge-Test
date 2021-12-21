@@ -1,13 +1,10 @@
 package aquila.aquilastestmod.common.block;
 
 import aquila.aquilastestmod.AquilasTestMod;
-import aquila.aquilastestmod.common.item.ModItems;
+import aquila.aquilastestmod.common.block.blocks.MiningNodeBlock;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -21,8 +18,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Supplier;
 
 public class ModBlocks {
@@ -30,7 +25,7 @@ public class ModBlocks {
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS,
             AquilasTestMod.MOD_ID);
     
-    public static final RegistryObject<Block> peacebloomNode = registerBlock("peacebloom_node",
+    public static final RegistryObject<Block> peacebloomBush = registerBlock("peacebloom_bush",
             () -> new FlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 1,
                     BlockBehaviour.Properties.of(Material.PLANT)
                                              .destroyTime(1.0f)
@@ -38,12 +33,15 @@ public class ModBlocks {
                                              .sound(SoundType.GRASS)
                                              .isSuffocating((blockState, blockGetter, blockPos) -> false)));
     
-    public static final RegistryObject<Block> silverleafNode = registerBlock("silverleaf_node",
+    public static final RegistryObject<Block> silverleafBush = registerBlock("silverleaf_bush",
             () -> new DoublePlantBlock(BlockBehaviour.Properties.of(Material.PLANT)
                                                                 .destroyTime(1.0f)
                                                                 .noCollission()
                                                                 .sound(SoundType.GRASS)
                                                                 .isSuffocating((blockState, blockGetter, blockPos) -> false)));
+    
+    public static final RegistryObject<Block> copperMiningNode = registerBlock("copper_node",
+            () -> new MiningNodeBlock(MiningNodeBlock.PROPERTIES));
     
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);
@@ -67,8 +65,8 @@ public class ModBlocks {
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
             AquilasTestMod.LOGGER.info("HELLO from Register Block");
             if (FMLEnvironment.dist == Dist.CLIENT) {
-                ItemBlockRenderTypes.setRenderLayer(peacebloomNode.get(), RenderType.cutout());
-                ItemBlockRenderTypes.setRenderLayer(silverleafNode.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(peacebloomBush.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(silverleafBush.get(), RenderType.cutout());
             }
         }
     }

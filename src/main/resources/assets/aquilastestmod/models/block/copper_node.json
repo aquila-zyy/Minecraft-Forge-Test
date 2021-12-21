@@ -1,0 +1,10 @@
+{
+  "__comment": "Add the following line on the same level as a 'model' declaration.",
+  "loader": "forge:obj",
+  "flip-v": true,
+  "model": "aquilastestmod:models/block/copper_node.obj",
+  "textures": {
+    "texture0": "minecraft:block/stone",
+    "particle": "minecraft:block/stone"
+  }
+}

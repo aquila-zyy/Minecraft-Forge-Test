@@ -2,7 +2,7 @@
   "loader": "forge:separate-perspective",
   "gui_light": "front",
   "base": {
-    "parent": "aquilastestmod:block/silverleaf_node_bottom"
+    "parent": "aquilastestmod:block/silverleaf_bush_bottom"
   },
   "perspectives": {
     "gui": {

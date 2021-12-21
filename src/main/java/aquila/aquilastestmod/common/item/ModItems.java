@@ -2,34 +2,15 @@ package aquila.aquilastestmod.common.item;
 
 import aquila.aquilastestmod.AquilasTestMod;
 import aquila.aquilastestmod.common.block.ModBlocks;
-import net.minecraft.client.renderer.block.model.BakedQuad;
-import net.minecraft.client.renderer.block.model.ItemOverrides;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.resources.model.BakedModel;
-import net.minecraft.client.resources.model.ModelBakery;
-import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import aquila.aquilastestmod.common.tab.ModTabs;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.client.event.ModelBakeEvent;
-import net.minecraftforge.client.extensions.IForgeBakedModel;
-import net.minecraftforge.client.model.ForgeModelBakery;
-import net.minecraftforge.client.model.ModelLoaderRegistry;
+import net.minecraft.world.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
 import java.util.function.Supplier;
 
 public class ModItems {
@@ -38,14 +19,16 @@ public class ModItems {
             AquilasTestMod.MOD_ID);
     
     // Items
+    public static final RegistryObject<Item> malachite = registerItem("malachite",
+            () -> new Item(new Item.Properties().tab(ModTabs.TEST_TAB).rarity(Rarity.RARE)));
     
     // BlockItems
     public static final RegistryObject<Item> peacebloom = registerItem("peacebloom",
-            () -> new BlockItem(ModBlocks.peacebloomNode.get(),
-                    new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+            () -> new BlockItem(ModBlocks.peacebloomBush.get(),
+                    new Item.Properties().tab(ModTabs.TEST_TAB)));
     public static final RegistryObject<Item> silverleaf = registerItem("silverleaf",
-            () -> new BlockItem(ModBlocks.silverleafNode.get(),
-                    new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+            () -> new BlockItem(ModBlocks.silverleafBush.get(),
+                    new Item.Properties().tab(ModTabs.TEST_TAB)));
     
     public static RegistryObject<Item> registerItem(String name, Supplier<Item> item) {
         return ITEMS.register(name, item);
